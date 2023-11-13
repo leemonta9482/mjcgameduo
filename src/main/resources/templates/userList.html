@@ -7,13 +7,15 @@
 </head>
 <body>
 <div class="container">
-  <div class="row-5" th:each="item : ${articles}">
-    <div class="card">
-      <div class="card-header" th:text="${item.name}"></div>
-      <div class="card-body">
-        <p class="card-text" th:text="${item.price}"></p>
-      </div>
-    </div>
+  <div class="row-5" th:each="item : ${users}">
+    <p th:text="${item.createnum}"></p>
+    <p th:text="${item.hn}"></p>
+    <p th:text="${item.pw}"></p>
+    <p th:text="${item.name}"></p>
+    <p th:text="${item.gender}"></p>
+    <p th:text="${item.nick}"></p>
+    <p th:text="${item.state}"></p>
+    <br>
   </div>
 </div>
 </body>

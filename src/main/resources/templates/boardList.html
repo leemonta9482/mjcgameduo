@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row-5" th:each="item : ${boards}">
+        <p th:text="${item.createnum}"></p>
+        <p th:text="${item.title}"></p>
+        <p th:text="${item.content}"></p>
+        <p th:text="${item.game}"></p>
+        <p th:text="${item.person}"></p>
+        <p th:text="${item.nick}"></p>
+        <br>
+    </div>
+</div>
+</body>
+</html>
