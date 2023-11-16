@@ -14,13 +14,12 @@ public class UserViewController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/userList")
-    public ModelAndView getArticles(){
-        ModelAndView mav = new ModelAndView();
-        List<User> user = userService.findAll();
-        mav.addObject("users", user);
-        mav.setViewName("userList");
-        return mav;
-    }
-
+//    @GetMapping("/userList")
+//    public ModelAndView getArticles(){
+//        ModelAndView mav = new ModelAndView();
+//        List<User> user = userService.findAll();
+//        mav.addObject("users", user);
+//        mav.setViewName("userList");
+//        return mav;
+//    }
 }

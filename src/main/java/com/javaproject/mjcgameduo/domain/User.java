@@ -15,10 +15,10 @@ public class User {
     @Column(name="createnum", updatable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // 생성번호 고유값
-    private int createnum;
+    private long createnum;
 
     @Id
-    @Column(name="hn", updatable = false, nullable = false)
+    @Column(name="hn", updatable = false, nullable = false, unique = true)
     // 아이디 (학번) 고유값
     private String hn;
 
@@ -27,7 +27,7 @@ public class User {
     private String pw;
 
     @Column(name = "name", nullable = false)
-    // 이름
+    // 이름bbbbbb
     private String name;
 
     @Column(name = "gender", nullable = false)
@@ -43,6 +43,7 @@ public class User {
     // 상태
     private int state;
 
+
     public User(String hn, String pw, String name, String gender, String nick, int state){
         this.hn = hn;
         this.pw = pw;
@@ -51,4 +52,61 @@ public class User {
         this.nick = nick;
         this.state = state;
     }
+
+    public long getCreatenum() {
+        return createnum;
+    }
+
+    public void setCreatenum(long createnum) {
+        this.createnum = createnum;
+    }
+
+    public String getHn() {
+        return hn;
+    }
+
+    public void setHn(String hn) {
+        this.hn = hn;
+    }
+
+    public String getPw() {
+        return pw;
+    }
+
+    public void setPw(String pw) {
+        this.pw = pw;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
 }
