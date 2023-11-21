@@ -1,5 +1,6 @@
 package com.javaproject.mjcgameduo.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.javaproject.mjcgameduo.domain.User;
 import com.javaproject.mjcgameduo.dto.UserRequest;
 import com.javaproject.mjcgameduo.dto.UserResponse;
@@ -30,7 +31,6 @@ public class UserController {
                                               HttpServletRequest httpServletRequest){
         HttpSession session = httpServletRequest.getSession(true);
         UserResponse response = userService.login(request);
-
         if(!response.isSuccess()){ // 로그인에 실패
             return ResponseEntity.ok().body(response);
         }
