@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container">
+    <a href="/logout" class="btn btn-primary">로그아웃</a>
     <div class="row-5" th:each="item : ${boards}">
         <p th:text="${item.createnum}"></p>
         <p th:text="${item.title}"></p>
