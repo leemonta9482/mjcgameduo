@@ -16,12 +16,4 @@ public class BoardViewController {
     @Autowired
     BoardService boardService;
 
-    @GetMapping("/boardList")
-    public ModelAndView getArticles(){
-        ModelAndView mav = new ModelAndView();
-        List<Board> board = boardService.findAll();
-        mav.addObject("boards", board);
-        mav.setViewName("boardList");
-        return mav;
-    }
 }

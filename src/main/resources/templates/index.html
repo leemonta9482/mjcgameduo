@@ -7,8 +7,10 @@
 </head>
 <body>
     <div class="continer">
-        <input id="hn" type="text" class="form-control">
-        <input id="pw" type="password" class="form-control">
+        <form method="post" action="/api/login" id="form">
+            <input id="hn" name="hn" type="text" class="form-control">
+            <input id="pw" name="pw" type="password" class="form-control">
+        </form>
         <div class="text-center">
             <button class="btn btn-primary" id="submit-btn">로그인</button>
         </div>
@@ -29,9 +31,19 @@
                     pw:pw
                 })
             })
-            //.then(function(){
-            //    location.href="/articles/"+id
-            //})
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // 로그인 성공 시 리다이렉트
+                    location.href = "/boardList";
+                } else {
+                    // 로그인 실패 시 다른 처리
+                    location.href = "/";
+                }
+            })
+            .catch(error => {
+                console.error("Error during login:", error);
+            });
         })
     </script>
 </body>
