@@ -7,12 +7,12 @@
 </head>
 <body>
     <div class="continer">
-        <form method="post" action="/api/login" id="form">
+
+        <div class="text-center">
             <input id="hn" name="hn" type="text" class="form-control">
             <input id="pw" name="pw" type="password" class="form-control">
-        </form>
-        <div class="text-center">
             <button class="btn btn-primary" id="submit-btn">로그인</button>
+            <a href="/register" class="btn btn-primary">회원가입</a>
         </div>
     </div>
 
@@ -32,13 +32,13 @@
                 })
             })
             .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // 로그인 성공 시 리다이렉트
-                    location.href = "/boardList";
-                } else {
-                    // 로그인 실패 시 다른 처리
-                    location.href = "/";
+            .then(data=>{
+                console.log(data)
+                if(data.success){
+                    location.href="/boardList"
+                }else{
+                    window.alert(data.message)
+                    location.href="/"
                 }
             })
             .catch(error => {

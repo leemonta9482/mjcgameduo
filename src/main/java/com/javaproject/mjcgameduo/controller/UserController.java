@@ -19,9 +19,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/api/join")
-    public ResponseEntity<UserResponse> join(@RequestBody UserRequest request){
-        UserResponse response = userService.join(request);
+    @PostMapping("/api/register")
+    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request){
+        UserResponse response = userService.register(request);
         return ResponseEntity.ok().body(response);
     }
 
