@@ -7,7 +7,6 @@
 </head>
 <body>
     <div class="continer">
-
         <div class="text-center">
             <input id="hn" name="hn" type="text" class="form-control">
             <input id="pw" name="pw" type="password" class="form-control">
@@ -35,7 +34,12 @@
             .then(data=>{
                 console.log(data)
                 if(data.success){
-                    location.href="/boardList"
+                    window.alert(data.admin)
+                    if(data.admin===999){
+                        location.href="/admin"
+                    }else{
+                        location.href="/boardList"
+                    }
                 }else{
                     window.alert(data.message)
                     location.href="/"

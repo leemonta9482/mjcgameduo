@@ -7,14 +7,14 @@
 </head>
 <body>
 <div class="container">
-  <div class="row-5" th:each="item : ${users}">
-    <p th:text="${item.createnum}"></p>
-    <p th:text="${item.hn}"></p>
-    <p th:text="${item.pw}"></p>
-    <p th:text="${item.name}"></p>
-    <p th:text="${item.gender}"></p>
-    <p th:text="${item.nick}"></p>
-    <p th:text="${item.state}"></p>
+  <div class="row-5" th:each="item : ${user}">
+      <p th:text="${item.createnum}"></p>
+      <p th:text="${item.hn}"></p>
+      <p th:text="${item.pw}"></p>
+      <p th:text="${item.name}"></p>
+      <p th:text="${item.gender}"></p>
+      <p th:text="${item.nick}"></p>
+      <p th:text="${item.state}"></p>
     <br>
   </div>
 </div>

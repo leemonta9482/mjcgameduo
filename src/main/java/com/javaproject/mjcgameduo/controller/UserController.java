@@ -36,5 +36,6 @@ public class UserController {
         // 로그인 성공
         session.setAttribute("userId", response.getUser().getHn());
         return ResponseEntity.ok().body(response);
+
     }
 }

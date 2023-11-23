@@ -8,6 +8,13 @@
 <body>
 <div class="container">
     <a href="/logout" class="btn btn-primary">로그아웃</a>
+    <div>
+        <div class="row-3">
+            <p th:text="${user.name}">님</p>
+            <p th:text="${user.hn}">님</p>
+            <p th:text="${user.nick}">님</p>
+        </div>
+    </div>
     <div class="row-5" th:each="item : ${boards}">
         <p th:text="${item.createnum}"></p>
         <p th:text="${item.title}"></p>
