@@ -21,24 +21,18 @@ public class UserViewController {
     BoardService boardService;
 
     @GetMapping("/")
-    public ModelAndView indexView(){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("index");
-        return mav;
+    public String indexView(){
+        return "index";
     }
 
     @GetMapping("/register")
-    public ModelAndView registerView(){
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("register");
-        return mav;
+    public String registerView(){
+        return "register";
     }
 
     @GetMapping("/logout")
-    public ModelAndView logout(HttpSession session) {
+    public String logout(HttpSession session) {
         session.invalidate(); // 세션을 완료하고 로그아웃 처리
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("index");
-        return mav;
+        return "index";
     }
 }

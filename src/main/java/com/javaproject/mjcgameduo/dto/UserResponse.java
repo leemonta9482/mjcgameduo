@@ -6,6 +6,7 @@ public class UserResponse {
     private boolean success;
     private String message;
     private User user;
+    private int admin;
 
     public boolean isSuccess() {
         return success;
@@ -29,5 +30,12 @@ public class UserResponse {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getAdmin() {
+        return admin;
+    }
+    public void setAdmin(int admin) {
+        this.admin = admin;
     }
 }

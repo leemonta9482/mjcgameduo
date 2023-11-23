@@ -37,10 +37,19 @@ public class UserService {
             response.setMessage("아이디 또는 패스워드가 틀림");
             return response;
         }
+        User user = userRepository.findByHn(request.getHn());
         response.setSuccess(true);
         response.setMessage("로그인 성공");
         response.setUser(checkUser);
+        response.setAdmin(user.getState());
         return response;
     }
 
+    public User findUser(String hn){
+        return userRepository.findByHn(hn);
+    }
+
+    public List<User> findAllUser(){
+        return userRepository.findAll();
+    }
 }
