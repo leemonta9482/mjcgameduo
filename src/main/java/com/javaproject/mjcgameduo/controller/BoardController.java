@@ -31,7 +31,6 @@ public class BoardController {
             response.setMassage("로그인 해주세요.");
             return ResponseEntity.ok().body(response);
         }
-
         Board savedRequest =  boardService.save(request, userId);
         response.setSuccess(true);
         response.setMassage("글 작성이 완료됨");

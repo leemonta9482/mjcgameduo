@@ -41,19 +41,4 @@ public class UserViewController {
         mav.setViewName("index");
         return mav;
     }
-
-    @GetMapping("/boardList")
-    public ModelAndView test(HttpSession session){
-        ModelAndView mav = new ModelAndView();
-        List<Board> board = boardService.findAll();
-        Object userId = session.getAttribute("userId");
-        if (userId == null) {
-            mav.setViewName("index");
-            return mav;
-        }
-        mav.addObject("user", userId);
-        mav.addObject("boards", board);
-        mav.setViewName("boardList");
-        return mav;
-    }
 }

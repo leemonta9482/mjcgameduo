@@ -13,7 +13,7 @@ import java.util.List;
 public class UserService {
     @Autowired
     UserRepository userRepository;
-    public UserResponse join(UserRequest request){
+    public UserResponse register(UserRequest request){
         User checkUser = userRepository.findByHn(request.getHn());
         UserResponse response = new UserResponse();
 
@@ -22,7 +22,6 @@ public class UserService {
             response.setMessage("이미 가입된 아이디 입니다.");
             return response;
         }
-
         User joinUser = userRepository.save(request.toEntity());
         response.setSuccess(true);
         response.setMessage("회원가입 완료");
@@ -38,7 +37,6 @@ public class UserService {
             response.setMessage("아이디 또는 패스워드가 틀림");
             return response;
         }
-
         response.setSuccess(true);
         response.setMessage("로그인 성공");
         response.setUser(checkUser);
