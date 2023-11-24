@@ -34,7 +34,6 @@
             .then(data=>{
                 console.log(data)
                 if(data.success){
-                    window.alert(data.admin)
                     if(data.admin===999){
                         location.href="/admin"
                     }else{

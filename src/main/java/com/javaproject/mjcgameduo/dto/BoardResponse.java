@@ -4,7 +4,7 @@ import com.javaproject.mjcgameduo.domain.Board;
 
 public class BoardResponse {
     private boolean success;
-    private String massage;
+    private String message;
     private Board board;
 
     public boolean isSuccess() {
@@ -15,12 +15,12 @@ public class BoardResponse {
         this.success = success;
     }
 
-    public String getMassage() {
-        return massage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMassage(String massage) {
-        this.massage = massage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public Board getBoard() {

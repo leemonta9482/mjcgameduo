@@ -7,23 +7,48 @@
 </head>
 <body>
 <div class="container">
-    <a href="/logout" class="btn btn-primary">로그아웃</a>
     <div>
         <div class="row-3">
-            <p th:text="${user.name}">님</p>
-            <p th:text="${user.hn}">님</p>
-            <p th:text="${user.nick}">님</p>
+            <input type="hidden" th:value="${user.hn}" id="hn">
+            <p>이름 : <span th:text="${user.name}"></span></p>
+            <p>학번 : <span th:text="${user.hn}"></span></p>
+            <p>닉넴 : <span th:text="${user.nick}"></span></p>
+            <a href="/logout" class="btn btn-primary">로그아웃</a>
+            <a href="/newBoard" class="btn btn-primary">구인글쓰기</a>
+            <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
         </div>
     </div>
-    <div class="row-5" th:each="item : ${boards}">
-        <p th:text="${item.createnum}"></p>
-        <p th:text="${item.title}"></p>
-        <p th:text="${item.content}"></p>
-        <p th:text="${item.game}"></p>
-        <p th:text="${item.person}"></p>
-        <p th:text="${item.nick}"></p>
-        <br>
+    <div class="row">
+        <div class="col-3" th:each="item : ${boards}">
+            <div class="card">
+                <p class="card-header">제목 : <span th:text="${item.title}"></span></p>
+                <div class="card-body">
+                    <p class="card-text">게시글 번호 : <span th:text="${item.createnum}"></span></p>
+                    <p class="card-text">내용 : <span th:text="${item.content}"></span></p>
+                    <p class="card-text">게임 종류 : <span th:text="${item.game}"></span></p>
+                    <p class="card-text">구하는 사람수 : <span th:text="${item.person}"></span></p>
+                    <p class="card-text">인게임 닉네임 : <span th:text="${item.nick}"></span></p>
+                    <p class="card-text">작성자 아이디 : <span th:text="${item.writer.hn}"></span></p>
+                    <br>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+    <script>
+        function remove(){
+            if(!confirm("작성한 글을 지우시겠습니까?")){
+                return
+            }else{
+                var id = document.getElementById("hn").value
+                fetch("/api/board/delete/"+id,{
+                    method:"DELETE"
+                })
+                .then(function(){
+                    location.replace("/boardList")
+                })
+            }
+        }
+    </script>
 </body>
 </html>

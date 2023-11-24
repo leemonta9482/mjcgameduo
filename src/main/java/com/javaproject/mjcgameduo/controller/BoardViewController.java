@@ -46,9 +46,28 @@ public class BoardViewController {
 
         if(userId == null){
             return "redirect:/"; // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
+        }else{
+            User user = userService.findUser(userId);
+            if(user.getState() != 999){
+                return "redirect:/"; // 로그인이 되어 있더라도 어드민 계정이 아니라면 홈페이지로 리다이렉트
+            }
         }
+
         List<User> users = userService.findAllUser();
+        List<Board> boards = boardService.findAll();
         model.addAttribute("user", users);
+        model.addAttribute("boards", boards);
         return "admin";
+    }
+
+    @GetMapping("/newBoard")
+    public String newArticle(Model model, HttpSession session){
+        String userId = (String)session.getAttribute("userId");
+        if (userId == null) {
+            return "redirect:/"; // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
+        }
+        User user = userService.findUser(userId);
+        model.addAttribute("user", user);
+        return "newBoard";
     }
 }
