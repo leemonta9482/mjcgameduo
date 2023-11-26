@@ -53,6 +53,11 @@ public class User {
         this.state = state;
     }
 
+    public void update(String pw, String nick){
+        this.pw = pw;
+        this.nick = nick;
+    }
+
     public long getCreatenum() {
         return createnum;
     }

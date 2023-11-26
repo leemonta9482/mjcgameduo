@@ -1,11 +1,13 @@
 package com.javaproject.mjcgameduo.service;
 
 import com.javaproject.mjcgameduo.domain.User;
+import com.javaproject.mjcgameduo.dto.UpdateUserRequest;
 import com.javaproject.mjcgameduo.dto.UserRequest;
 import com.javaproject.mjcgameduo.dto.UserResponse;
 import com.javaproject.mjcgameduo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -44,6 +46,13 @@ public class UserService {
         response.setUser(checkUser);
         response.setAdmin(user.getState());
         return response;
+    }
+
+    @Transactional // springframework에 존재하는 라이브러리로 어노테이션 해야함
+    public User update(String hn, UpdateUserRequest request){
+        User user = userRepository.findByHn(hn);
+        user.update(request.getPw(), request.getNick());
+        return user;
     }
 
     public User findUser(String hn){

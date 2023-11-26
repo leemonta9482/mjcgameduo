@@ -70,4 +70,6 @@ public class BoardViewController {
         model.addAttribute("user", user);
         return "newBoard";
     }
+
+
 }
