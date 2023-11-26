@@ -4,7 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -12,34 +16,34 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class User {
 
-    @Column(name="createnum", updatable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    // 생성번호 고유값
-    private long createnum;
-
     @Id
-    @Column(name="hn", updatable = false, nullable = false, unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="createnum", updatable = false)
+    // 생성번호 고유값
+    private Long createnum;
+
+    @Column(name="hn", nullable = false, unique = true)
     // 아이디 (학번) 고유값
     private String hn;
 
-    @Column(name="pw", nullable = false)
+    @Column(name="pw")
     // 비밀번호
 
     private String pw;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     // 이름bbbbbb
     private String name;
 
-    @Column(name = "gender", nullable = false)
+    @Column(name = "gender")
     // 성별
     private String gender;
 
-    @Column(name = "nick", nullable = false)
+    @Column(name = "nick")
     // 닉네임
     private String nick;
 
-    @Column(name = "state", nullable = false)
+    @Column(name = "state")
     @ColumnDefault("0")
     // 상태
     private int state;
@@ -54,11 +58,25 @@ public class User {
         this.state = state;
     }
 
-    public long getCreatenum() {
+    public void update(String pw, String nick){
+        this.pw = pw;
+        this.nick = nick;
+    }
+
+    public void adminUpdate(String hn, String pw, String name, String gender, String nick, int state){
+        this.hn = hn;
+        this.pw = pw;
+        this.name = name;
+        this.gender = gender;
+        this.nick = nick;
+        this.state = state;
+    }
+
+    public Long getCreatenum() {
         return createnum;
     }
 
-    public void setCreatenum(long createnum) {
+    public void setCreatenum(Long createnum) {
         this.createnum = createnum;
     }
 
@@ -109,5 +127,4 @@ public class User {
     public void setState(int state) {
         this.state = state;
     }
-
 }

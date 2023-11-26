@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row-5">
+            <h2><span th:text="${user.name}"></span>님의 마이페이지</h2>
+            <h2>학번 : <span th:text="${user.hn}"></span></h2>
+            비밀번호 : <input type="password" th:value="${user.pw}" id="pw" class="form-control">
+            닉네임 : <input type="text" th:value="${user.nick}" id="nick" class="form-control">
+            <input id="hn" type="hidden" th:value="${user.hn}">
+            <br>
+            <button class="btn btn-primary" id="submit-btn">수정완료</button>
+            <a href="/boardList" class="btn btn-danger">돌아가기</a>
+        </div>
+    </div>
+
+    <script src="/js/userUpdate.js"></script>
+</body>
+</html>

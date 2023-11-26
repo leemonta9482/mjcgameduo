@@ -39,8 +39,8 @@ public class Board {
     // 닉네임
     private String nick;
 
-    @ManyToOne
-    @JoinColumn(name="writer_hn")
+    @OneToOne
+    @JoinColumn(name="writer_createnum")
     private User writer;
 
     public Board(String title, String content, String game, int person, String nick){
@@ -102,6 +102,7 @@ public class Board {
     public User getWriter() {
         return writer;
     }
+
     public void setWriter(User writer) {
         this.writer = writer;
     }
