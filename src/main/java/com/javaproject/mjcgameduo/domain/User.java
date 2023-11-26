@@ -24,6 +24,7 @@ public class User {
 
     @Column(name="pw", nullable = false)
     // 비밀번호
+
     private String pw;
 
     @Column(name = "name", nullable = false)

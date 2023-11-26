@@ -44,7 +44,41 @@ public class UserService {
         response.setUser(checkUser);
         response.setAdmin(user.getState());
         return response;
+
     }
+    public void UserResponse(UserRequest request) {
+        // 유효성 검사
+        Object checkuser = null;
+        if (!isValidHn(checkuser.getHn())) {
+            throw new IllegalArgumentException("유효하지 않은 아아디입니다.");
+        }
+
+        Object cehckuser = null;
+        if (!isValidPw(cehckuser.getpw())) {
+            throw new IllegalArgumentException("유효하지 않은 비밀번호입니다.");
+        }
+
+        // 회원가입 로직
+        User user = new User();
+        user.setHn(checkuser.gethn());
+        user.setPw(cehcksuer.getpw());
+
+        // 데이터베이스에 저장
+        userRepository.save(user);
+    }
+
+    private boolean isValidHn(String Hn) {
+        // 아아디 주소의 정규식 패턴
+        String hnPattern = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$";
+        return hnPattern.matches(hnPattern);
+    }
+
+    private boolean isValidPw(String pw) {
+        // 비밀번호의 정규식 패턴
+        String pwPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
+        return pwPattern.matches(pwPattern);
+    }
+
 
     public User findUser(String hn){
         return userRepository.findByHn(hn);
