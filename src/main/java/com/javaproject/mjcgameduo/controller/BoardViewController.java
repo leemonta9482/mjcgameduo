@@ -66,10 +66,9 @@ public class BoardViewController {
         if (userId == null) {
             return "redirect:/"; // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
         }
+
         User user = userService.findUser(userId);
         model.addAttribute("user", user);
         return "newBoard";
     }
-
-
 }

@@ -39,7 +39,7 @@ public class Board {
     // 닉네임
     private String nick;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="writer_createnum")
     private User writer;
 

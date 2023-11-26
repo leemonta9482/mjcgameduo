@@ -13,9 +13,10 @@
             <p>이름 : <span th:text="${user.name}"></span></p>
             <p>학번 : <span th:text="${user.hn}"></span></p>
             <p>닉넴 : <span th:text="${user.nick}"></span></p>
+            <a th:if="${user.state == 999}" href="/admin" class="btn btn-primary">관리자페이지</a>
             <a href="/mypage" class="btn btn-primary">마이페이지</a>
-            <a href="/logout" class="btn btn-primary">로그아웃</a>
             <a href="/newBoard" class="btn btn-primary">구인글쓰기</a>
+            <a href="/logout" class="btn btn-danger">로그아웃</a>
             <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
         </div>
     </div>
@@ -36,21 +37,7 @@
         </div>
     </div>
 </div>
-    <script>
-        function remove(){
-            if(!confirm("작성한 글을 지우시겠습니까?")){
-                return
-            }else{
-                var id = document.getElementById("hn").value
-                fetch("/api/board/delete/"+id,{
-                    method:"DELETE"
-                })
-                .then(function(){
-                    window.alert("글이 정상적으로 삭제되었습니다.")
-                    location.replace("/boardList")
-                })
-            }
-        }
-    </script>
+    <!-- 게시글 삭제 js -->
+    <script src="/js/boardDelete.js"></script>
 </body>
 </html>

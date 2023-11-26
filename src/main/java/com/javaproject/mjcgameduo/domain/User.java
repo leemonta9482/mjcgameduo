@@ -62,6 +62,15 @@ public class User {
         this.nick = nick;
     }
 
+    public void adminUpdate(String hn, String pw, String name, String gender, String nick, int state){
+        this.hn = hn;
+        this.pw = pw;
+        this.name = name;
+        this.gender = gender;
+        this.nick = nick;
+        this.state = state;
+    }
+
     public Long getCreatenum() {
         return createnum;
     }
