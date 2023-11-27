@@ -1,8 +1,6 @@
 package com.javaproject.mjcgameduo.service;
 
 import com.javaproject.mjcgameduo.domain.User;
-import com.javaproject.mjcgameduo.dto.UpdateAdminUpdate;
-import com.javaproject.mjcgameduo.dto.UpdateUserRequest;
 import com.javaproject.mjcgameduo.dto.UserRequest;
 import com.javaproject.mjcgameduo.dto.UserResponse;
 import com.javaproject.mjcgameduo.repository.UserRepository;
@@ -49,54 +47,7 @@ public class UserService {
         return response;
 
     }
-    public void UserResponse(UserRequest request) {
-        // 유효성 검사
-        Object checkuser = null;
-        if (!isValidHn(checkuser.getHn())) {
-            throw new IllegalArgumentException("유효하지 않은 아아디입니다.");
-        }
 
-        Object cehckuser = null;
-        if (!isValidPw(cehckuser.getpw())) {
-            throw new IllegalArgumentException("유효하지 않은 비밀번호입니다.");
-        }
-
-        // 회원가입 로직
-        User user = new User();
-        user.setHn(checkuser.gethn());
-        user.setPw(cehcksuer.getpw());
-
-        // 데이터베이스에 저장
-        userRepository.save(user);
-    }
-
-    private boolean isValidHn(String Hn) {
-        // 아아디 주소의 정규식 패턴
-        String hnPattern = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$";
-        return hnPattern.matches(hnPattern);
-    }
-
-    private boolean isValidPw(String pw) {
-        // 비밀번호의 정규식 패턴
-        String pwPattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$";
-        return pwPattern.matches(pwPattern);
-    }
-
-
-    @Transactional // springframework에 존재하는 라이브러리로 어노테이션 해야함
-    public User update(String hn, UpdateUserRequest request){
-        User user = userRepository.findByHn(hn);
-        user.update(request.getPw(), request.getNick());
-        return user;
-    }
-
-    @Transactional // springframework에 존재하는 라이브러리로 어노테이션 해야함
-    public User adminUpdate(Long createnum, UpdateAdminUpdate request){
-        User user = userRepository.findByCreatenum(createnum);
-        user.adminUpdate(request.getHn(), request.getPw(), request.getName(), request.getGender(),
-                request.getNick(), request.getState());
-        return user;
-    }
 
     public User findUser(String hn){
         return userRepository.findByHn(hn);
