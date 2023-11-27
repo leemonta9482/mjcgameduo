@@ -16,23 +16,23 @@
         <div class="col-md-2 text-center">
             <label for="rowsPerPage" class="mb-2">페이지당 행 수</label>
             <select id="rowsPerPage" class="form-select mb-2">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
+                <option value="10">10개</option>
+                <option value="15">15개</option>
+                <option value="20">20개</option>
+                <option value="50">50개</option>
             </select>
             <a href="/boardList" class="btn btn-success mb-2">메인화면</a>
             <a href="/logout" class="btn btn-warning mb-2">로그아웃</a>
-            <button class="btn btn-info mb-2" id="selectAllBtn">전체 선택</button>
-            <button class="btn btn-warning mb-2" id="deselectAllBtn">전체 해제</button>
-            <button class="btn btn-primary mb-2" id="batchUpdateBtn">일괄 업데이트</button>
-            <button class="btn btn-danger mb-2" id="batchDeleteBtn">일괄 회원탈퇴</button>
         </div>
         <div id="pagination" class="d-flex justify-content-center mt-3"></div>
     </div>
 </div>
 <br>
 <div class="container mt-4">
+    <button class="btn btn-info mb-2" id="selectAllBtn">전체 선택</button>
+    <button class="btn btn-warning mb-2" id="deselectAllBtn">전체 해제</button>
+    <button class="btn btn-primary mb-2" id="batchUpdateBtn">체크 업데이트</button>
+    <button class="btn btn-danger mb-2" id="batchDeleteBtn">체크 회원탈퇴</button>
     <table id="myTable" class="table table-bordered table-striped text-center">
         <thead class="thead-dark">
         <tr class="userTable">

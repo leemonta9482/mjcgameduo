@@ -16,6 +16,8 @@ public class BoardRequest {
     private int person;
     private String nick;
 
+    private String writer_gender;
+
     public Board toEntity(){
         Board board = new Board(title,  content, game, person, nick);
         return board;
