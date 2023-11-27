@@ -49,6 +49,7 @@ public class Board {
         this.game = game;
         this.person = person;
         this.nick = nick;
+//        this.writer_gender = writer_gender;
     }
 
     public long getCreatenum() {
@@ -106,4 +107,5 @@ public class Board {
     public void setWriter(User writer) {
         this.writer = writer;
     }
+
 }

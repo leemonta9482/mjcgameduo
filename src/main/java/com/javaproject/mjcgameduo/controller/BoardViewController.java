@@ -33,7 +33,6 @@ public class BoardViewController {
         }
         List<Board> boards = boardService.findAll();
         User user = userService.findUser(userId);
-
         model.addAttribute("user", user);
         model.addAttribute("boards", boards);
 

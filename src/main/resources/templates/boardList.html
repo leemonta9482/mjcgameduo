@@ -13,9 +13,17 @@
             <p>이름 : <span th:text="${user.name}"></span></p>
             <p>학번 : <span th:text="${user.hn}"></span></p>
             <p>닉넴 : <span th:text="${user.nick}"></span></p>
+            <p>
+                등급 : [
+                <span th:if="${user.state==1}">일반</span>
+                <span th:if="${user.state==2}">VIP</span>
+                <span th:if="${user.state==999}">관리자</span>
+                ]
+            </p>
             <a th:if="${user.state == 999}" href="/admin" class="btn btn-primary">관리자페이지</a>
             <a href="/mypage" class="btn btn-primary">마이페이지</a>
             <a href="/newBoard" class="btn btn-primary">구인글쓰기</a>
+            <a href="#" class="btn btn-success">도네이션</a>
             <a href="/logout" class="btn btn-danger">로그아웃</a>
             <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
         </div>
@@ -31,6 +39,9 @@
                     <p class="card-text">구하는 사람수 : <span th:text="${item.person}"></span></p>
                     <p class="card-text">인게임 닉네임 : <span th:text="${item.nick}"></span></p>
                     <p class="card-text">작성자 아이디 : <span th:text="${item.writer.hn}"></span></p>
+                    <p class="card-text" th:if="${item.writer.state==2}">
+                        <span>VIP 돋보기 효과 : </span><span th:if="${item.writer.state==2}" th:text="${item.writer.gender}"></span>
+                    </p>
                     <br>
                 </div>
             </div>
