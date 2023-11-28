@@ -8,7 +8,7 @@ document.getElementById('batchDeleteBtn').addEventListener("click", function() {
 function batchDeleteRows() {
     var selectedRows = document.querySelectorAll('input[name="selectedRows"]:checked');
     if(selectedRows.length<=0){
-        alert("1개라도 선택해야 합니다.")
+        alert("1개이상 선택해야 합니다.")
         return;
     }
     if (!confirm("선택된 유저의 회원탈퇴를 진행 하시겠습니까?")) {

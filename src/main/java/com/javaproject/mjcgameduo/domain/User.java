@@ -28,7 +28,6 @@ public class User {
 
     @Column(name="pw")
     // 비밀번호
-
     private String pw;
 
     @Column(name = "name")

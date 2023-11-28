@@ -26,7 +26,7 @@ function selectAllRows(select) {
 function batchUpdateRows() {
     var selectedRows = document.querySelectorAll('input[name="selectedRows"]:checked');
     if(selectedRows.length<=0){
-        alert("1개라도 선택해야 합니다.")
+        alert("1개이상 선택해야 합니다.")
         return;
     }
 

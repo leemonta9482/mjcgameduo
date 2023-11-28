@@ -4,7 +4,11 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -39,6 +43,10 @@ public class Board {
     // 닉네임
     private String nick;
 
+    @CreatedDate
+    @Column(name="created_at")
+    private LocalDateTime createdAt;
+
     @OneToOne
     @JoinColumn(name="writer_createnum")
     private User writer;
@@ -49,7 +57,14 @@ public class Board {
         this.game = game;
         this.person = person;
         this.nick = nick;
-//        this.writer_gender = writer_gender;
+    }
+
+    public String getFormattedCreateDate(){
+        if(createdAt==null){
+            return "";
+        }
+        DateTimeFormatter pattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return createdAt.format(pattern);
     }
 
     public long getCreatenum() {
@@ -108,4 +123,11 @@ public class Board {
         this.writer = writer;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

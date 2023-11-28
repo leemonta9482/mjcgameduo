@@ -26,11 +26,13 @@ public class BoardViewController {
 
     @GetMapping("/boardList")
     public String showBoardList(Model model, HttpSession session) {
+
         String userId = (String)session.getAttribute("userId");
 
         if (userId == null) {
             return "redirect:/"; // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
         }
+
         List<Board> boards = boardService.findAll();
         User user = userService.findUser(userId);
         model.addAttribute("user", user);

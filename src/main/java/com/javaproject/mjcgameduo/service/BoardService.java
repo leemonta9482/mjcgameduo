@@ -31,7 +31,7 @@ public class BoardService {
     }
 
     public List<Board> findAll(){
-        return boardRepository.findAll();
+        return boardRepository.findAllByOrderByCreatedAtDesc();
     }
 
     public Board findOne(long createnum){
