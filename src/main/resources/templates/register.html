@@ -27,42 +27,6 @@
 
         var submitBtn = document.getElementById("submit-btn")
         submitBtn.addEventListener("click", function(){
-        function isValidHN(hn) {
-    // 아이디의 정규식 패턴 (숫자로만 이루어져 있고, 최소 10자 이상)
-        var hnPattern = /^[0-9]{10,}$/;
-        return hnPattern.test(hn);
-        }
-
-        function isValidPW(pw, pwConfirm) {
-    // 비밀번호의 정규식 패턴
-        var pwPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-    // 비밀번호와 재입력이 동일한지 확인
-        if (pw !== pwConfirm) {
-            return false;
-        }
-
-        return pwPattern.test(pw);
-    }
-
-    // 예시 사용자 입력
-        var hn = "2022200000";
-        var pw = "Abcd1234!";
-        var pwConfirm = "Abcd1234!"; // 비밀번호 재입력
-
-// 아이디와 비밀번호 유효성 검사
-        if (isValidHN(hn)) {
-        console.log("유효한 아이디입니다.");
-        } else {
-        console.log("유효하지 않은 아이디입니다.");
-        }
-
-        if (isValidPW(pw, pwConfirm)) {
-            console.log("유효한 비밀번호입니다.");
-        } else {
-            console.log("유효하지 않은 비밀번호입니다.");
-        }
-
             var hn=document.getElementById("hn").value
             var pw=document.getElementById("pw").value
             var name=document.getElementById("name").value
@@ -93,9 +57,5 @@
             })
         })
     </script>
-
-
-
-
 </body>
 </html>
