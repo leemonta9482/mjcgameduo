@@ -53,7 +53,10 @@ public class BoardController {
     }
 
     @DeleteMapping("/api/board/delete/{id}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable String id){
+    public ResponseEntity<Void> deleteBoard(@PathVariable String id, HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession(true);
+        String LogineduserId = (String)session.getAttribute("userId");
+
         boardService.deleteAllByWriterHn(id);
         return ResponseEntity.ok().build();
     }

@@ -34,7 +34,7 @@
                 <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span cid="'timeAgo_' + ${iterStat.index}"> </span></p>
                 <div class="card-body">
                     <p class="card-text" th:if="${user.state==999}">
-                        <button th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">하위</button>
+                        <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">게시글삭제</button>
                     </p>
                     <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
                     <p class="card-text">내용 : <span th:text="${item.content}"></span></p>
@@ -55,7 +55,7 @@
                 <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span></p>
                 <div class="card-body">
                     <p class="card-text" th:if="${user.state==999}">
-                        <button th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">하위</button>
+                        <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">게시글삭제</button>
                     </p>
                     <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
                     <p class="card-text">내용 : <span th:text="${item.content}"></span></p>
