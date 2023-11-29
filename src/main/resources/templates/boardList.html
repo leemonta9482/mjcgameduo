@@ -22,6 +22,7 @@
             <a th:if="${user.state == 999}" href="/admin" class="btn btn-primary">관리자페이지</a>
             <a href="/mypage" class="btn btn-primary">마이페이지</a>
             <a href="/newBoard" class="btn btn-primary">구인글쓰기</a>
+            <a href="/boardList" class="btn btn-primary">새로고침</a>
             <a href="/logout" class="btn btn-danger">로그아웃</a>
             <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
         </div>
@@ -31,7 +32,7 @@
 
             <!--VIP 유저의 게시글-->
             <div th:if="${item.writer.state==2}" class="card bg-primary">
-                <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span cid="'timeAgo_' + ${iterStat.index}"> </span></p>
+                <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span></p>
                 <div class="card-body">
                     <p class="card-text" th:if="${user.state==999}">
                         <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">게시글삭제</button>
