@@ -1,5 +1,13 @@
 SELECT * FROM mjcgameduo.user;
 
+SELECT * FROM mjcgameduo.board;
+
+-- 1번 생성 
+INSERT INTO user (gender, hn, name, nick, pw, state) VALUES
+("남", "123", "이우진", "관리자", "123", 999),
+("남", "1234", "테스터", "테스터", "1234", 1);
+
+-- 2번 생성
 INSERT INTO user (gender, hn, name, nick, pw) VALUES
 ("남", "20220001", "김지훈", "훈이", "1234"),
 ("여", "20220002", "박영희", "영희네", "1234"),

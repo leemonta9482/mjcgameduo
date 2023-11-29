@@ -31,10 +31,10 @@
 
             <!--VIP 유저의 게시글-->
             <div th:if="${item.writer.state==2}" class="card bg-primary">
-                <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span></p>
+                <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span cid="'timeAgo_' + ${iterStat.index}"> </span></p>
                 <div class="card-body">
                     <p class="card-text" th:if="${user.state==999}">
-                        <!-- 글 삭제 로직 -->
+                        <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">게시글삭제</button>
                     </p>
                     <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
                     <p class="card-text">내용 : <span th:text="${item.content}"></span></p>
@@ -55,7 +55,7 @@
                 <p class="card-header">제목 : <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span></p>
                 <div class="card-body">
                     <p class="card-text" th:if="${user.state==999}">
-                        <!-- 글 삭제 로직 -->
+                        <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">게시글삭제</button>
                     </p>
                     <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
                     <p class="card-text">내용 : <span th:text="${item.content}"></span></p>
