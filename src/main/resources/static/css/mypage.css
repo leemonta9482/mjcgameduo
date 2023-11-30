@@ -4,9 +4,9 @@
      list-style: none;
      text-decoration: none;
      color: black;
-     }
+}
 
-     .header {
+ .header {
      height: 110px;
      text-align: center;
      background-color: thistle;
@@ -14,13 +14,13 @@
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
  }
 
-     .header__logo h1 {
+.header__logo h1 {
      font: bold 40px 'arial';
      padding-top: 14px;
      letter-spacing: 2px;
  }
 
- .container {
+.container {
     background-color: #ffffff;
     width: 600px;
     height: 370px;
@@ -31,13 +31,14 @@
     text-align: center;
     padding: 40px;
     margin: 0 auto;
-   }
+}
 
-   body {
+body {
     font-family: Arial, sans-serif;
     text-align: center;
-  }
-   #submit-button, .goBackButton {
+}
+
+#submit-btn, .goBackButton {
     display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
@@ -46,27 +47,27 @@
     border-radius: 10px; /* 모서리를 둥글게 만듭니다 */
     cursor: pointer;
     margin-top: 120px;
-  }
+}
 
-  #submit-button {
+#submit-btn {
     background-color: #38408E; /* 파란색 배경색 */
     color: #ffffff; /* 흰색 텍스트 색상 */
     border: none; /* 테두리 없음 */
-  }
+}
 
-  .goBackButton {
+.goBackButton {
     background-color: #38408E; /* 파란색 배경색 */
     color: #ffffff; /* 흰색 텍스트 색상 */
     text-decoration: none; /* 링크에 밑줄 없음 */
-  }
+}
 
 
-  h2 {
+h2 {
     margin-bottom: 10px;
     grid-column: span 1 
-  }
+}
 
-  input {
+input {
     width: 70%; 
     margin-top: 50px;
     box-sizing: border-box; /* 입력 칸 간에 간격을 추가합니다 */
@@ -75,7 +76,7 @@
     padding: 10px;
     border: 2px solid #ddd; /* 밝은 회색 테두리 추가 */
     border-radius: 10px;
-  }
+}
 
 
   .container2 {
