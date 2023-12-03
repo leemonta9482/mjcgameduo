@@ -2,29 +2,124 @@
 <html lang="ko" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>명전 게임 해 듀오</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .container{
+            margin-top: 20px;
+        }
+        .header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .header img{
+            margin-right: 20px;
+            width: 20%;
+            height: 150px;
+        }
+        h1{
+            color: black;
+            text-align: center;
+            margin: 0;
+            font-weight:bold;
+            z-index: 2;
+            background-color: white;
+            padding: 0 20px;
+        }
+        .underline{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 2px;
+            width: 80%;
+            background-color: #007bff;
+            z-index: 1;
+        }
+        .row-3{
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn-primary{
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-danger{
+            margin-top: 20px;
+            border-color: #dc3545;
+        }
+        .card{
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        .card-body {
+            background-color: #ffffff;
+        }
+        .card.bg-primary {
+            border: 2px solid #007bff;
+        }
+        .vip-user {
+            background-color: #f8d7da;
+        }
+
+        .admin-user {
+            background-color: #d4edda;
+        }
+        .refresh-button{
+            text-align: right;
+            margin-top: 20px;
+        }
+        .refresh-button a{
+            margin-left: 10px;
+        }
+       #main1{
+        position: absolute;
+        left: 50px; top: 75px;
+        width: 180px;
+       }
+    </style>
 </head>
 <body>
 <div class="container">
+    <div class = "header">
+        <img src="C:\Users\J.S.Yoon\Desktop\work\KakaoTalk_20231130_190802293.png" alt="Main Image">
+        <h1> 명전 게임 해 듀오</h1>
+    </div>
     <div>
-        <div class="row-3">
-            <input type="hidden" th:value="${user.hn}" id="hn">
-            <p>이름 : <span th:text="${user.name}"></span></p>
-            <p>학번 : <span th:text="${user.hn}"></span></p>
-            <p>닉넴 : <span th:text="${user.nick}"></span></p>
-            <p>등급 : [
-                <span th:if="${user.state==1}">일반</span>
-                <span th:if="${user.state==2}">VIP</span>
-                <span th:if="${user.state==999}">관리자</span>
-                ]
-            </p>
-            <a th:if="${user.state == 999}" href="/admin" class="btn btn-primary">관리자페이지</a>
-            <a href="/mypage" class="btn btn-primary">마이페이지</a>
-            <a href="/newBoard" class="btn btn-primary">구인글쓰기</a>
+        <div id="main1">
+            <div class="row-3">
+                <input type="hidden" th:value="${user.hn}" id="hn">
+                <p>이름 : <span th:text="${user.name}"></span></p>
+                <p>학번 : <span th:text="${user.hn}"></span></p>
+                <p>닉네임 : <span th:text="${user.nick}"></span></p>
+                <p>등급 : [
+                    <span th:if="${user.state==1}">일반</span>
+                    <span th:if="${user.state==2}">VIP</span>
+                    <span th:if="${user.state==999}">관리자</span>
+                    ]
+                </p>
+                <a th:if="${user.state == 999}" href="/admin" class="btn btn-primary">관리자페이지</a>
+                <a href="/mypage" class="btn btn-primary">마이페이지</a>
+                <a href="/newBoard" class="btn btn-primary">게시글 작성하기</a>
+                <a href="/logout" class="btn btn-danger">로그아웃</a>
+                <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
+            </div>
+        </div>
+        <div class="refresh-button">
             <a href="/boardList" class="btn btn-primary">새로고침</a>
-            <a href="/logout" class="btn btn-danger">로그아웃</a>
-            <a class="btn btn-danger" onclick="remove()">내가 작성한 글 지우기</a>
         </div>
     </div>
     <div class="row">
