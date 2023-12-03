@@ -14,11 +14,14 @@
         .header{
           background-color: #ffffff;
         }
+        #name {
+            color : white;
+        }
       </style>
 </head>
 <body>
     <header class="header">
-    <div class="header__logo">
+    <div class="headerLogo">
         <a>
             <h1>개인정보 수정</h1>
         </a>
@@ -26,9 +29,9 @@
     </header>
     <div class="container">
         <div>
-            <h2 class="container2"><span th:text="${user.name}"></span>님</h2>
-            <input type="text" th:value="${user.nick}" id="nick" placeholder="닉네임"><br>
-            <input type="password" th:value="${user.pw}" id="pw" placeholder="비밀번호"><br>
+            <h2 class="container2"><span th:text="${user.name}" id="name"></span>님</h2>
+            <span>닉네임 : </span><input type="text" th:value="${user.nick}" id="nick" placeholder="닉네임"><br>
+            <span>비밀번호 : </span><input type="password" th:value="${user.pw}" id="pw" placeholder="비밀번호"><br>
             <input id="hn" type="hidden" th:value="${user.hn}">
             <br>
             <button id="submit-btn">수정완료</button>
