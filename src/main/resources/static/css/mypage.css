@@ -6,6 +6,18 @@
      color: black;
 }
 
+body{
+  background-color: #E6EBEF;
+}
+
+.header{
+  background-color: #ffffff;
+}
+
+#name {
+    color : white;
+}
+
  .header {
      height: 110px;
      text-align: center;
@@ -14,9 +26,9 @@
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
  }
 
-.header__logo h1 {
+.headerLogo h1 {
      font: bold 40px 'arial';
-     padding-top: 14px;
+     padding-top: 28px;
      letter-spacing: 2px;
  }
 
