@@ -19,18 +19,46 @@ body{
 }
 
  .header {
-     height: 110px;
+     height: 108px;
      text-align: center;
      background-color: thistle;
      border-bottom: 1px solid #999;
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
  }
 
+ .header img {
+    width: 110px; 
+    height: 110px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    text-align: left;
+}
+
+.headerLogo {
+    display: flex;
+    align-items: center;
+}
+
+.headerLogo ul {
+    display: flex;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+    width: 100%;
+}
+
 .headerLogo h1 {
-     font: bold 40px 'arial';
-     padding-top: 28px;
-     letter-spacing: 2px;
- }
+    padding-top: 28px;
+    margin: 0;
+}
+
+/* Center-align the text */
+.headerLogo ul li:last-child {
+    margin: 0 auto;
+}
 
 .container {
     background-color: #ffffff;
@@ -90,8 +118,7 @@ input {
     border-radius: 10px;
 }
 
-
-  .container2 {
+.container2 {
     background-color: #38408E; 
     color: #ffffff; 
     text-decoration: none; 
@@ -99,4 +126,4 @@ input {
     padding: 10px; /* 내부 간격을 추가합니다 */
     width: 40%; /* 화면의 반만큼 너비를 설정합니다 */
     margin: 0 auto;
-  }
+}
