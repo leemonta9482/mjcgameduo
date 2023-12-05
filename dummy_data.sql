@@ -2,6 +2,8 @@ SELECT * FROM mjcgameduo.user;
 
 SELECT * FROM mjcgameduo.board;
 
+SELECT * FROM mjcgameduo.board e WHERE e.created_at > current_timestamp - 30;
+
 -- 1번 생성 
 INSERT INTO user (gender, hn, name, nick, pw, state) VALUES
 ("남", "123", "이우진", "관리자", "123", 999),

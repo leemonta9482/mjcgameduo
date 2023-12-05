@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BoardService {
@@ -22,7 +25,6 @@ public class BoardService {
     @Autowired
     UserRepository userRepository;
 
-
     public Board save(BoardRequest request, String userId){
         User loginUser = userRepository.findByHn(userId);
         Board board = request.toEntity();
@@ -30,8 +32,16 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
-    public List<Board> findAll(){
-        return boardRepository.findAllByOrderByCreatedAtDesc();
+    public List<Board> findAll() {
+        List<Board> board = boardRepository.findAll();
+        LocalDateTime time = LocalDateTime.now();
+
+        List<Board> recentBoard = board.stream()
+                .filter(board1 -> board1.getCreatedAt().plusMinutes(30).isAfter(time))
+                .sorted(Comparator.comparing(Board::getCreatedAt).reversed()) // 등록날짜의 역순으로 정렬
+                .toList();
+
+        return recentBoard;
     }
 
     public Board findOne(long createnum){
