@@ -10,25 +10,21 @@ body{
   background-color: #E6EBEF;
 }
 
-.header{
-  background-color: #ffffff;
-}
-
 #name {
     color : white;
 }
 
- .header {
+.header {
      height: 108px;
      text-align: center;
-     background-color: thistle;
+     background-color: #ffffff;
      border-bottom: 1px solid #999;
      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    
+
  }
 
- .header img {
-    width: 110px; 
+.header img {
+    width: 110px;
     height: 110px;
     display: flex;
     align-items: center;
@@ -53,6 +49,7 @@ body{
 .headerLogo h1 {
     padding-top: 28px;
     margin: 0;
+    font-weight: bold;
 }
 
 /* Center-align the text */

@@ -28,7 +28,7 @@ public class UserService {
         }
         User joinUser = userRepository.save(request.toEntity());
         response.setSuccess(true);
-        response.setMessage("회원가입 완료");
+        response.setMessage("회원가입 신청이 완료 되었습니다!\n관리자의 승인이 허가되면 가입이 완료됩니다.");
         response.setUser(joinUser);
         return response;
     }

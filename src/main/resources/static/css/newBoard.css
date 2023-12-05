@@ -1,0 +1,38 @@
+.container {
+    background-color: #ffffff;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#title,#game,#nick,#person,#content {
+    margin-bottom: 15px;
+}
+
+.text-center {
+    margin-top: 20px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+#header {
+    height: 100px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#headerImg img {
+    width: 100px;
+}
+
+#headerContents {
+    font-weight: bold;
+    width: 325px;
+    margin: 0 auto;
+}

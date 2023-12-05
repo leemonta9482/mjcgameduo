@@ -4,6 +4,8 @@ import com.javaproject.mjcgameduo.domain.Board;
 import com.javaproject.mjcgameduo.domain.User;
 import com.javaproject.mjcgameduo.dto.BoardRequest;
 import com.javaproject.mjcgameduo.dto.BoardResponse;
+import com.javaproject.mjcgameduo.repository.BoardRepository;
+import com.javaproject.mjcgameduo.repository.UserRepository;
 import com.javaproject.mjcgameduo.service.BoardService;
 import com.javaproject.mjcgameduo.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class BoardController {
@@ -24,6 +28,9 @@ public class BoardController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    BoardRepository boardRepository;
 
     @PostMapping("/api/board/create")
     public ResponseEntity<BoardResponse> saveArticle(@RequestBody BoardRequest request,
@@ -40,11 +47,11 @@ public class BoardController {
 
         User user = userService.findUser(userId);
         Long count = boardService.getBoardCountByUser(user);
+
         if(count>=1){
-            response.setSuccess(false);
-            response.setMessage("사용자당 1개의 글만 작성할 수 있습니다.");
-            return ResponseEntity.ok().body(response);
+            boardService.deleteAllByWriterHn(user.getHn());
         }
+
         response.setSuccess(true);
         response.setMessage("글 작성이 완료됨");
         Board savedRequest = boardService.save(request, userId);

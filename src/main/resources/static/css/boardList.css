@@ -1,100 +1,196 @@
-body{
-    background-color: #f8f9fa;
-    color: #343a40;
+* {
+            margin: 0;
+            padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.container{
-    margin-top: 20px;
+h1 {
+    font-size: 38px;
 }
 
-.header{
+#mainContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#mypage {
+    width: 400px;
+    height: 100vh;
+    background-color: #38408E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+#mypage h1 {
+    width: 200px;
+    height: auto;
+    border: 1px solid black;
+    border-radius: 50px;
+    text-align: center;
+}
+
+#boardContainer {
+    flex-grow: 1;
+}
+
+#header {
+    height: 100px;
+    background-color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+#mypage_title {
+    text-align: center;
+    margin-top: 20px;
+    margin: 30px;
+}
+
+#mypage_title h1 {
+    width: 250px;
+    height: auto;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+#mypage_mainMenu{
+    margin-top: 50px;
+}
+
+#mypage_mainMenu ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#mypage_mainMenu li{
+    margin-bottom: 10px;
+}
+
+#mypage_topMenu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Add this line to center-align the content */
+}
+
+#mypage_topMenu li {
+    margin-bottom: 10px;
+    text-align: center; /* Add this line to center-align the text within each list item */
+}
+
+#headerImg img {
+    width: 100px;
+}
+
+#headerContents {
+    font-weight: bold;
+    width: 325px;
+    margin: 0 auto;
+}
+
+#boardList {
+    text-align: right;
+}
+
+#reloadArea {
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 
-.header img{
-    margin-right: 20px;
-    width: 20%;
-    height: 150px;
+#boardList ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 30px;
+    width: auto;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-
-h1{
+.board{
+    width: 300px;
+    height: 400px;
+    background-color: #38408E;
     color: black;
-    text-align: center;
-    margin: 0;
-    font-weight:bold;
-    z-index: 2;
-    background-color: white;
-    padding: 0 20px;
-}
-
-.underline{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 2px;
-    width: 80%;
-    background-color: #007bff;
-    z-index: 1;
-}
-
-.row-3{
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.btn-primary{
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-.btn-danger{
-    margin-top: 20px;
-    border-color: #dc3545;
-}
-
-.card{
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.card-header {
-    background-color: #f8f9fa;
     font-weight: bold;
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
 }
 
-.card-body {
-    background-color: #ffffff;
+.board_vip{
+    width: 300px;
+    height: 400px;
+    color: black;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 20px;
+    text-align: left;
+    background-image: url('/img/bgimg.png');
+    background-size: cover;
+    background-position: center;
 }
 
-.card.bg-primary {
-    border: 2px solid #007bff;
+.text-start p{
+    background-color: white;
 }
 
-.vip-user {
-    background-color: #f8d7da;
+button {
+    margin-top: 10px;
 }
 
-.admin-user {
-    background-color: #d4edda;
+#createBtn, #deleteBtn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    width: 200px; /* 너비 설정 */
+    height: 40px; /* 높이 설정 */
+    line-height: 40px; /* 버튼의 높이와 동일하게 설정하여 수직 가운데 정렬 */
+    margin: 0 auto;
+    border-radius: 10px;
+}
+#createBtn{
+    color: black;
+    background-color: white;
+}
+#deleteBtn{
+    color: white;
+    background-color: #dc3545;
+    cursor: pointer;
 }
 
-.refresh-button{
-    text-align: right;
-    margin-top: 20px;
-}
-
-.refresh-button a{
-    margin-left: 10px;
-}
-
-#main1{
-position: absolute;
-left: 50px; top: 75px;
-width: 180px;
+#reload{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #38408E;
+    width: 100px; /* 너비 설정 */
+    height: 40px; /* 높이 설정 */
+    line-height: 40px; /* 버튼의 높이와 동일하게 설정하여 수직 가운데 정렬 */
+    margin-right: 50px;
+    border-radius: 50px;
 }
