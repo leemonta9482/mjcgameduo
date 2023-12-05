@@ -2,6 +2,12 @@ var submitBtn = document.getElementById("submit-btn")
 submitBtn.addEventListener("click", function(){
     var hn=document.getElementById("hn").value
     var pw=document.getElementById("pw").value
+
+    if (hn === "" || pw === "") {
+            window.alert("아이디 혹은 비밀번호를 입력해주세요!");
+            return;
+    }
+
     fetch("/api/login",{
         method:"POST",
         headers:{
