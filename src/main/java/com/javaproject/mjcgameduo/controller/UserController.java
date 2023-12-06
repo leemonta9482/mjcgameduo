@@ -25,14 +25,14 @@ public class UserController {
     BoardService boardService;
 
     @PostMapping("/api/register")
-    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request){
+    public ResponseEntity<UserResponse> register(@RequestBody UserRequest request){ // 회원가입 메서드
         UserResponse response = userService.register(request);
         return ResponseEntity.ok().body(response);
     }
 
     @PostMapping("/api/login")
     public ResponseEntity<UserResponse> login(@RequestBody UserRequest request,
-                                              HttpServletRequest httpServletRequest){
+                                              HttpServletRequest httpServletRequest){ // 로그인 메서드
         HttpSession session = httpServletRequest.getSession(true);
         UserResponse response = userService.login(request);
         if(!response.isSuccess()){ // 로그인에 실패
@@ -44,7 +44,7 @@ public class UserController {
     }
 
     @PutMapping("/api/update/{hn}")
-    public ResponseEntity<User> updateUser(
+    public ResponseEntity<User> updateUser( // 사용자 권한의 개인정보 수정
             @PathVariable String hn,
             @RequestBody UpdateUserRequest request
     ){
@@ -53,7 +53,7 @@ public class UserController {
     }
 
     @PutMapping("/api/admin/update/{createnum}")
-    public ResponseEntity<User> updateUser(
+    public ResponseEntity<User> updateUser( // 어드민 권한의 유저정보 수정
             @PathVariable Long createnum,
             @RequestBody UpdateAdminUpdate request
     ){
@@ -62,7 +62,7 @@ public class UserController {
     }
 
     @DeleteMapping("/api/admin/delete/{createnum}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long createnum){
+    public ResponseEntity<Void> deleteUser(@PathVariable Long createnum){ // 어드민 권한의 유저 회원탈퇴
         User user = userService.findUser(createnum);
         boardService.deleteAllByWriterHn(user.getHn());
         userService.deleteAllByCreatenum(createnum);

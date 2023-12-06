@@ -34,7 +34,7 @@ public class BoardController {
 
     @PostMapping("/api/board/create")
     public ResponseEntity<BoardResponse> saveArticle(@RequestBody BoardRequest request,
-                                                     HttpServletRequest httpServletRequest) {
+                                                     HttpServletRequest httpServletRequest) { // 글 작성 메서드
         HttpSession session = httpServletRequest.getSession(true);
         String userId = (String)session.getAttribute("userId");
 
@@ -48,7 +48,7 @@ public class BoardController {
         User user = userService.findUser(userId);
         Long count = boardService.getBoardCountByUser(user);
 
-        if(count>=1){
+        if(count>=1){ // 원래 작성된 글이 있으면 삭제하고 새로운 글을 쓰도록 함.
             boardService.deleteAllByWriterHn(user.getHn());
         }
 
@@ -60,7 +60,7 @@ public class BoardController {
     }
 
     @DeleteMapping("/api/board/delete/{id}")
-    public ResponseEntity<Void> deleteBoard(@PathVariable String id, HttpServletRequest httpServletRequest){
+    public ResponseEntity<Void> deleteBoard(@PathVariable String id, HttpServletRequest httpServletRequest){ // 글 삭제 메서드
         HttpSession session = httpServletRequest.getSession(true);
         String LogineduserId = (String)session.getAttribute("userId");
 

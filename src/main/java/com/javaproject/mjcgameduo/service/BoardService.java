@@ -33,21 +33,14 @@ public class BoardService {
         return boardRepository.save(board);
     }
 
-    public List<Board> findAll() {
+    public List<Board> findAll() { // 30분 지나면 불러오지 않음.
         List<Board> board = boardRepository.findAll();
         LocalDateTime time = LocalDateTime.now();
-
         List<Board> recentBoard = board.stream()
                 .filter(board1 -> board1.getCreatedAt().plusMinutes(30).isAfter(time))
                 .sorted(Comparator.comparing(Board::getCreatedAt).reversed()) // 등록날짜의 역순으로 정렬
                 .toList();
-
         return recentBoard;
-    }
-
-    public Board findOne(long createnum){
-        Board board = boardRepository.findById(createnum).orElseThrow();
-        return board;
     }
 
     public Long getBoardCountByUser(User user) {
