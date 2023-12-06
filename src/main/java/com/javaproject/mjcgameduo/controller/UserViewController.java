@@ -22,7 +22,7 @@ public class UserViewController {
     BoardService boardService;
 
     @GetMapping("/")
-    public String indexView(){
+    public String indexView(){ // 로그인메뉴 이동
         return "index";
     }
 
@@ -32,16 +32,16 @@ public class UserViewController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate(); // 세션을 완료하고 로그아웃 처리
+    public String logout(HttpSession session) { // 세션을 완료하고 로그아웃 처리
+        session.invalidate();
         return "index";
     }
 
     @GetMapping("/mypage")
-    public String mypage(Model model, HttpSession session){
+    public String mypage(Model model, HttpSession session){ // 개인정보 페이지 이동
         String userId = (String)session.getAttribute("userId");
-        if (userId == null) {
-            return "redirect:/"; // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
+        if (userId == null) { // 로그인이 되어있지 않으면 홈페이지로 리다이렉트
+            return "redirect:/";
         }
         User user = userService.findUser(userId);
         model.addAttribute("user", user);
