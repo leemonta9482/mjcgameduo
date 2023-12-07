@@ -43,6 +43,17 @@ public class BoardService {
         return recentBoard;
     }
 
+    public List<Board> findByGameContaining(String game){
+        List<Board> board = boardRepository.findByGameContaining(game);
+        LocalDateTime time = LocalDateTime.now();
+        List<Board> recentBoard = board.stream()
+                .filter(board1 -> board1.getCreatedAt().plusMinutes(30).isAfter(time))
+                .sorted(Comparator.comparing(Board::getCreatedAt).reversed()) // 등록날짜의 역순으로 정렬
+                .toList();
+
+        return recentBoard;
+    }
+
     public Long getBoardCountByUser(User user) {
         return boardRepository.countByWriter(user);
     }

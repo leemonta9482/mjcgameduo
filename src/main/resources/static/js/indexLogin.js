@@ -29,7 +29,6 @@ submitBtn.addEventListener("click", function(){
             }else if(data.admin===1){ // 승인
                 location.href="/boardList"
             }else if(data.admin===2){ // VIP
-                window.alert("VIP 회원님 환영합니다.")
                 location.href="/boardList"
             }else{
                 window.alert("약관 위반으로 정지된 계정입니다!\n자세한 내용은 관리자에게 문의해주세요.")

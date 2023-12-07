@@ -12,4 +12,5 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
     Long countByWriter(User user);
     void deleteByWriter_Hn(String hn);
     List<Board> findByWriter_State(int state);
+    List<Board> findByGameContaining(String game);
 }

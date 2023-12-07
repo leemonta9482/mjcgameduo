@@ -1,0 +1,28 @@
+body{
+    background-color: #E6EBEF;
+}
+
+#searchBtn{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    width: 70px; /* 너비 설정 */
+    height: 37.6px;
+    margin: 0 auto;
+    margin-right: 10px;
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    color:black;
+    float: right;
+}
+
+#hn{
+    width: 200px;
+    height: 37.6px;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    float: right;
+}
