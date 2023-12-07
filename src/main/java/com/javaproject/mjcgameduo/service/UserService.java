@@ -76,6 +76,10 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> findByHnContaining(String hn){
+        List<User> user = userRepository.findByHnContaining(hn);
+        return user;
+    }
     @Transactional
     public void deleteAllByCreatenum(Long createnum) {
         userRepository.deleteByCreatenum(createnum);

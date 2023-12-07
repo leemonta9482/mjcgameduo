@@ -249,7 +249,7 @@ button {
     height: 40px; /* 높이 설정 */
     line-height: 40px; /* 버튼의 높이와 동일하게 설정하여 수직 가운데 정렬 */
     margin-right: 50px;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 #notice{
@@ -275,5 +275,30 @@ button {
     border-radius: 10px;
     background-color: #dc3545;
     color:white;
-    margin-left:118px;
+    float:right;
+}
+
+#searchBtn{
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    width: 70px; /* 너비 설정 */
+    height: 40px; /* 높이 설정 */
+    line-height: 40px; /* 버튼의 높이와 동일하게 설정하여 수직 가운데 정렬 */
+    margin: 0 auto;
+    border: 0;
+    border-radius: 10px;
+    background-color: white;
+    color:black;
+    margin-right: 10px;
+}
+
+#game{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    margin-right: 10px;
 }

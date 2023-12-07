@@ -59,9 +59,12 @@
         <div id="boardList">
             <p id="reloadArea">
                 <span id="notice">※ 공지사항을 제외한 모든 글은 30분 이상 경과시 보이지 않습니다! ※</span>
+                <input type="text" id="game" name="game" class="mb-2" placeholder="게임명을 입력해주세요.">
+                <button id="searchBtn" class="mb-2">검색</button>
                 <a href="/boardList" id="reload">새로고침</a>
             </p>
             <ul class="text-start">
+                <!-- 관리자 게시글이 불러와지는 공간 -->
                 <li th:each="item, iterStat : ${notice}">
                     <div th:if="${item.writer.state==999}" class="board_admin">
                         <input type="hidden" th:id="'adminCreatedAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
@@ -191,6 +194,9 @@
 
 <!-- 게시글 삭제 js -->
 <script src="/js/boardDelete.js"></script>
+
+<!-- 게시글 검색 js -->
+<script src="/js/searchBoardList.js"></script>
 
 </body>
 </html>

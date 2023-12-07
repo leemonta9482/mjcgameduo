@@ -32,10 +32,8 @@ submitBtn.addEventListener("click", function(){
     .then(response => response.json())
     .then(data=>{
         if(data.success){
-            window.alert(data.message)
             location.href="/boardList"
         }else{
-            window.alert(data.message)
             location.href="/boardList"
         }
     })
