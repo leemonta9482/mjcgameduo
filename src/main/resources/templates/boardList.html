@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>명전 게임 해 듀오</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/fontReset.css">
     <link rel="stylesheet" href="/css/boardList.css">
 </head>
 <body>
@@ -51,39 +52,34 @@
     <div id="boardContainer">
         <div id="header">
             <div id="headerImg">
-                <a href="#"><img src="/img/logo.png" alt="#"></a>
+                <a href="/boardList"><img src="/img/logo.png" alt="#"></a>
             </div>
-            <h1 id="headerContents">명전 게임 해 듀오</h1>
+            <h1 id="headerContents">명전 게임해 듀오</h1>
         </div>
         <div id="boardList">
             <p id="reloadArea">
+                <span id="notice">※ 공지사항을 제외한 모든 글은 30분 이상 경과시 보이지 않습니다! ※</span>
                 <a href="/boardList" id="reload">새로고침</a>
             </p>
             <ul class="text-start">
                 <li th:each="item, iterStat : ${notice}">
                     <div th:if="${item.writer.state==999}" class="board_admin">
                         <input type="hidden" th:id="'adminCreatedAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
-                        <p>
-                            <span th:text="${item.title}"></span> | <span th:id="'adminTimeAgo_' + ${iterStat.index}"> </span>
+                        <p class="board_createAt">
+                            <span th:id="'adminTimeAgo_' + ${iterStat.index}"></span>
+                            <button th:if="${user.state==999}" class="deleteBtn" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
-                        <p>
+                        <p class="board_title">
+                            <span th:text="${item.title}"></span>
+                        </p>
+                        <p class="board_game">
+                            <span>게임/수:</span>
                             <span th:text="${item.game}"></span>
-                        </p>
-                        <p>
                             <span th:text="${item.person}"></span>
+                            <span>명</span>
                         </p>
-                        <p>
+                        <p class="board_content">
                             <span th:text="${item.content}"></span>
-                        </p>
-                        <p>
-                            <span th:text="${item.nick}"></span>
-                        </p>
-                        <p th:if="${user.state==2 or user.state==999}">
-                            <span>VIP 돋보기 효과 : </span>
-                            <span th:text="${item.writer.gender}"></span>
-                        </p>
-                        <p th:if="${user.state==999}">
-                            <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
                     </div>
                 </li>
@@ -91,52 +87,54 @@
                 <li th:each="item, iterStat : ${boards}" th:if="${item.writer.state != 999}">
                     <div th:if="${item.writer.state==2}" class="board_vip">
                         <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
-                        <p>
-                            <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span>
+                        <p class="board_createAt">
+                            <span th:id="'timeAgo_' + ${iterStat.index}"> </span>
+                            <button th:if="${user.state==999}" class="deleteBtn" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
-                        <p>
+                        <p class="board_title">
+                            <span th:text="${item.title}"></span>
+                        </p>
+                        <p class="board_game">
+                            <span>게임/수:</span>
                             <span th:text="${item.game}"></span>
-                        </p>
-                        <p>
                             <span th:text="${item.person}"></span>
+                            <span>명</span>
                         </p>
-                        <p>
+                        <p class="board_content">
                             <span th:text="${item.content}"></span>
                         </p>
-                        <p>
-                            <span th:text="${item.nick}"></span>
+                        <p class="board_nick">
+                            <span>인게임 닉네임 : </span><span th:text="${item.nick}"></span>
                         </p>
-                        <p th:if="${user.state==2 or user.state==999}">
+                        <p th:if="${user.state==2 or user.state==999}" class="board_vip_fnc">
                             <span>VIP 돋보기 효과 : </span>
                             <span th:text="${item.writer.gender}"></span>
-                        </p>
-                        <p th:if="${user.state==999}">
-                            <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
                     </div>
                     <div th:if="${item.writer.state==1}" class="board">
                         <input type="hidden" th:id="'createdAt_' + ${iterStat.index}" th:value="${#temporals.format(item.createdAt, 'yyyy-MM-dd HH:mm')}">
-                        <p>
-                            <span th:text="${item.title}"></span> | <span th:id="'timeAgo_' + ${iterStat.index}"> </span>
+                        <p class="board_createAt">
+                            <span th:id="'timeAgo_' + ${iterStat.index}"> </span>
+                            <button th:if="${user.state==999}" class="deleteBtn" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
-                        <p>
+                        <p class="board_title">
+                            <span th:text="${item.title}"></span>
+                        </p>
+                        <p class="board_game">
+                            <span>게임/수:</span>
                             <span th:text="${item.game}"></span>
-                        </p>
-                        <p>
                             <span th:text="${item.person}"></span>
+                            <span>명</span>
                         </p>
-                        <p>
+                        <p class="board_content">
                             <span th:text="${item.content}"></span>
                         </p>
-                        <p>
-                            <span th:text="${item.nick}"></span>
+                        <p class="board_nick">
+                            <span>인게임 닉네임 : </span><span th:text="${item.nick}"></span>
                         </p>
-                        <p th:if="${user.state==2 or user.state==999}">
+                        <p th:if="${user.state==2 or user.state==999}" class="board_vip_fnc">
                             <span>VIP 돋보기 효과 : </span>
                             <span th:text="${item.writer.gender}"></span>
-                        </p>
-                        <p th:if="${user.state==999}">
-                            <button class="btn btn-danger" th:id="${item.writer.hn}" onclick="adminDeleteBoard(this.id)">글 삭제</button>
                         </p>
                     </div>
                 </li>
