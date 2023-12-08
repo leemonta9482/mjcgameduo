@@ -1,6 +1,6 @@
 package com.javaproject.mjcgameduo.dto;
 
-public class UpdateAdminUpdate {
+public class UpdateAdmin {
     private Long createnum;
     private String hn;
     private String pw;

@@ -1,7 +1,7 @@
 package com.javaproject.mjcgameduo.service;
 
 import com.javaproject.mjcgameduo.domain.User;
-import com.javaproject.mjcgameduo.dto.UpdateAdminUpdate;
+import com.javaproject.mjcgameduo.dto.UpdateAdmin;
 import com.javaproject.mjcgameduo.dto.UpdateUserRequest;
 import com.javaproject.mjcgameduo.dto.UserRequest;
 import com.javaproject.mjcgameduo.dto.UserResponse;
@@ -57,7 +57,7 @@ public class UserService {
     }
 
     @Transactional // springframework에 존재하는 라이브러리로 어노테이션 해야함
-    public User adminUpdate(Long createnum, UpdateAdminUpdate request){
+    public User adminUpdate(Long createnum, UpdateAdmin request){
         User user = userRepository.findByCreatenum(createnum);
         user.adminUpdate(request.getHn(), request.getPw(), request.getName(), request.getGender(),
                 request.getNick(), request.getState());

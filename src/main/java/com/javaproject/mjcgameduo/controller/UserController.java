@@ -1,8 +1,7 @@
 package com.javaproject.mjcgameduo.controller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.javaproject.mjcgameduo.domain.User;
-import com.javaproject.mjcgameduo.dto.UpdateAdminUpdate;
+import com.javaproject.mjcgameduo.dto.UpdateAdmin;
 import com.javaproject.mjcgameduo.dto.UpdateUserRequest;
 import com.javaproject.mjcgameduo.dto.UserRequest;
 import com.javaproject.mjcgameduo.dto.UserResponse;
@@ -12,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -55,7 +53,7 @@ public class UserController {
     @PutMapping("/api/admin/update/{createnum}")
     public ResponseEntity<User> updateUser( // 어드민 권한의 유저정보 수정
             @PathVariable Long createnum,
-            @RequestBody UpdateAdminUpdate request
+            @RequestBody UpdateAdmin request
     ){
         User user = userService.adminUpdate(createnum, request);
         return ResponseEntity.ok().body(user);
